@@ -2,9 +2,13 @@
 ![Framework Overview](src/overview.jpg)  
 
 **abstract**
+
 **Purpose:** The physical appearance of virtual influencers has raised the attention of researchers. This study aims to find and prove the quantified physical appearance traits of virtual influencers (non-human and color feature) on user engagement and gift-giving behavior. 
+
 **Methods:** OpenCV, Image Color Summarizer and multi-variable regression analysis were utilized to test hypotheses on a sample of 2456 live streaming sessions.
+
 **Results:** The empirical findings reveal the significant relationships among non-human feature, warm degree, user engagement and gift-giving behavior. Non-human feature has negative impact on user engagement but positive impact on gift-giving behavior. Warm degree always has a positive effect on both user engagement and gift-giving behavior. In addition, the proved moderating effects show that lightness and chroma has a significant moderating effect on the relationship between appearance of the virtual influencers and both user engagement and gift-giving behavior.
+
 **Conclusion:** This study refines physical appearance into more specifical feature such as non-human feature and color effects to adapt the concept of virtual influencers. It examines its actual impact, and extends the conceptual framework of effectiveness of virtual influencers by comprehending the theory of Uncanny valley and color psychology.
 
 # Virtual Influencers Data Processing Pipeline
