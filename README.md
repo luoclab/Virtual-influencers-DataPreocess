@@ -1,79 +1,34 @@
-# Virtual-influencers-DataPreocess
-this repositoty is a utility tools
+# Virtual influencers’ physical appearance and its effect on user engagement and gift-giving
 ![Framework Overview](src/overview.jpg)  
-# Virtual Influencers Image Processing Pipeline
-A reproducible workflow for color analysis and anime character extraction
-https://img.shields.io/badge/license-MIT-blue.svg
 
-https://src/overview.jpg
+**abstract**
+**Purpose:** The physical appearance of virtual influencers has raised the attention of researchers. This study aims to find and prove the quantified physical appearance traits of virtual influencers (non-human and color feature) on user engagement and gift-giving behavior. 
+**Methods:** OpenCV, Image Color Summarizer and multi-variable regression analysis were utilized to test hypotheses on a sample of 2456 live streaming sessions.
+**Results:** The empirical findings reveal the significant relationships among non-human feature, warm degree, user engagement and gift-giving behavior. Non-human feature has negative impact on user engagement but positive impact on gift-giving behavior. Warm degree always has a positive effect on both user engagement and gift-giving behavior. In addition, the proved moderating effects show that lightness and chroma has a significant moderating effect on the relationship between appearance of the virtual influencers and both user engagement and gift-giving behavior.
+**Conclusion:** This study refines physical appearance into more specifical feature such as non-human feature and color effects to adapt the concept of virtual influencers. It examines its actual impact, and extends the conceptual framework of effectiveness of virtual influencers by comprehending the theory of Uncanny valley and color psychology.
 
-📌 Overview
-This repository provides a transparent and replicable pipeline for:
+# Virtual Influencers Data Processing Pipeline
 
-Image color analysis (OpenCV + Image Color Summarizer)
+## 1.opencv
+We use OpenCV to read the image and extract the color value (R, G, B) pixel by pixel based on the RGB color model. Then, according to the formula shown in Figure 2 in the paper, we calculate the cold and warm value of each pixel and take the average of the cold and warm values ​​of all pixels as the cold and warm value of the entire image. The code is in opencv/
 
-Anime character detection/extraction (pre-trained models)
+## 2.Colorsummarizer
+We use the open source image color summarization tool [colorsummarizer](https://mk.bcgsc.ca/colorsummarizer/)
+ for color feature extraction. Our configuration file is in the colorsummarizer/ file path
+To support batch processing, we use the local version of the tool and test to confirm that it is consistent with the online version.
 
-Cold/warm tone calculation (RGB-based metric)
+## 3. Anime Character Detection and Extraction
 
-Designed for future studies on virtual influencers' visual characteristics.
+This module identifies and extracts anime-style virtual influencer characters from images for downstream tasks.
 
-🔧 Methodology
-1. OpenCV-based Color Processing
-Application:
+We use the following opensource tools:
 
-Reads images in RGB mode and extracts per-pixel channel values
+### 3.1 Anime Character Face Detection  
+We use the open-source project [Anime Face Detector](https://github.com/qhgz2013/anime-face-detector) to detect characters in the image. The model returns bounding boxes, which are used to crop out the character region.
 
-Computes cold/warm tone scores using the formula from Figure 2 in the paper
+### 3.2 Background Removal  
+We apply [Pixian.AI](https://pixian.ai/) to remove the background from the cropped character image, keeping only the character with a transparent background.
 
-Batch processes all images with fixed parameters
+### Sample Outputs  
+Randomly selected examples are available in the following folder:sample/
 
-Reproducibility:
-✅ Fixed image processing logic (process_colors.py)
-✅ All parameters hardcoded (no hidden config)
-✅ Compatible with alternative libraries (PIL, scikit-image)
-
-Future Extensions:
-
-Implement HSV/LAB color spaces (hsv_extension.py [planned])
-
-Add human perception weighting
-
-2. Image Color Summarizer
-Application:
-
-Quantifies dominant colors via k-means clustering (k=5)
-
-Extracts:
-
-HSV/LCH values per cluster
-
-Cluster proportions (results/summary_stats.csv)
-
-Reproducibility:
-✅ Included config file (config/summarizer_config.ini)
-✅ Verified consistency between local/online versions
-✅ Sample outputs provided (data/processed/)
-
-Future Extensions:
-
-Test different clustering algorithms
-
-Compare across color models (Lab vs YCbCr)
-
-3. Anime Character Detection
-Application:
-
-Face detection via anime-face-detector
-
-Background removal using segmentation_module
-
-Reproducibility:
-✅ Frozen model weights (models/)
-✅ Example outputs (data/cropped_characters/)
-
-Future Extensions:
-
-Fine-tune for specific attributes (expressions, accessories)
-
-Apply to non-anime art styles
