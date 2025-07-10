@@ -1,5 +1,6 @@
 # Virtual-influencers-DataPreocess
 this repositoty is a utility tools
+![Framework Overview](src/overview.jpg)  
 # Virtual Influencers Image Processing Pipeline
 A reproducible workflow for color analysis and anime character extraction
 https://img.shields.io/badge/license-MIT-blue.svg
