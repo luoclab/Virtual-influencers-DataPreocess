@@ -1,7 +1,7 @@
 # Virtual influencers’ physical appearance and its effect on user engagement and gift-giving
 ![Framework Overview](src/overview.jpg)  
 
-**abstract**
+**Abstract**
 
 **Purpose:** The physical appearance of virtual influencers has raised the attention of researchers. This study aims to find and prove the quantified physical appearance traits of virtual influencers (non-human and color feature) on user engagement and gift-giving behavior. 
 
